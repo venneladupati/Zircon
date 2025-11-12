@@ -1,0 +1,57 @@
+{
+  "name": "Zircon",
+  "description": "Download lecture videos from UMN and analyze them into notes, summaries, or \"short-form video content\" with this extension.",
+  "version": "1.3.1",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Lecture Download Configuration"
+  },
+  "icons": {
+    "16": "static/icons/16.png",
+    "32": "static/icons/32.png",
+    "48": "static/icons/48.png",
+    "128": "static/icons/128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://kaf.canvas.umn.edu/channel/*"],
+      "js": ["src/util/logger.js", "src/util/media.js", "src/kaltura_grid.js"],
+      "css": ["static/css/kaltura_grid.css"],
+      "all_frames": true
+    },
+    {
+      "matches": ["https://kaf.canvas.umn.edu/media/*"],
+      "js": [
+        "src/util/logger.js",
+        "src/util/media.js",
+        "src/kaltura_player.js"
+      ],
+      "css": ["static/css/kaltura_player.css"],
+      "all_frames": true
+    },
+    {
+      "matches": ["https://kaf.canvas.umn.edu/browseandembed/*"],
+      "js": ["src/util/logger.js", "src/util/media.js", "src/kaltura_embed.js"],
+      "css": ["static/css/kaltura_player.css"],
+      "all_frames": true
+    },
+    {
+      "matches": ["https://media.unite.umn.edu/portal/player.php?*"],
+      "js": [
+        "src/util/logger.js",
+        "src/util/media.js",
+        "src/util/unite.js",
+        "src/unite_player.js"
+      ],
+      "css": ["static/css/unite_player.css"],
+      "all_frames": true
+    }
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "permissions": ["storage", "identity", "cookies"],
+  "host_permissions": ["https://zircon.socialcoding.net/*"]
+}

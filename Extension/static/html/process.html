@@ -1,0 +1,170 @@
+<html>
+  <head>
+    <title>Process the Video</title>
+    <link rel="stylesheet" href="../fonts/fonts.css" />
+    <link rel="stylesheet" href="../../global.css" />
+    <link rel="stylesheet" href="../css/process.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <nav>
+        <a href="https://www.notes.socialcoding.net/" target="_blank"
+          ><img src="../icons/logo_wide.svg" alt="logo" id="logo"
+        /></a>
+        <a href="https://github.com/Kanishk-K/Zircon" target="_blank">
+          <img src="../icons/github.svg" alt="github icon" id="github-icon"
+        /></a>
+      </nav>
+
+      <div
+        id="no-content-alert"
+        class="card hidden"
+        style="
+          max-width: 600px;
+          border-color: #f87171;
+          background-color: #fee2e2;
+        "
+      >
+        <p style="color: #b91c1c; font-family: monospace">
+          <b>No video data found</b>. This may have occured if the page was
+          refreshed, please try again.
+        </p>
+      </div>
+
+      <div id="process-content-container" class="hidden">
+        <div id="job">
+          <div class="card">
+            <img id="thumbnail" />
+            <h1 id="title" class="brand-color"></h1>
+            <h2>Optional Video Selection</h2>
+            <div id="video-container">
+              <div class="video-item" data-selection="subway_surfers">
+                <img src="../images/subway_surfers.png" />
+                <p>Subway Surfers</p>
+              </div>
+              <div class="video-item" data-selection="minecraft">
+                <img src="../images/minecraft.png" />
+                <p>Minecraft</p>
+              </div>
+              <div class="video-item" data-selection="baking">
+                <img src="../images/baking.png" />
+                <p>Baking</p>
+              </div>
+              <div class="video-item" data-selection="makeup">
+                <img src="../images/makeup.png" />
+                <p>Makeup</p>
+              </div>
+              <div class="video-item" data-selection="sand">
+                <img src="../images/sand.png" />
+                <p>Sand</p>
+              </div>
+              <div class="video-item" data-selection="soap">
+                <img src="../images/soap.png" />
+                <p>Soap</p>
+              </div>
+            </div>
+            <button id="submit">
+              Process
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                fill="#000000"
+                viewBox="0 0 256 256"
+              >
+                <path
+                  d="M178.34,165.66,160,147.31V208a8,8,0,0,1-16,0V147.31l-18.34,18.35a8,8,0,0,1-11.32-11.32l32-32a8,8,0,0,1,11.32,0l32,32a8,8,0,0,1-11.32,11.32ZM160,40A88.08,88.08,0,0,0,81.29,88.68,64,64,0,1,0,72,216h40a8,8,0,0,0,0-16H72a48,48,0,0,1,0-96c1.1,0,2.2,0,3.29.12A88,88,0,0,0,72,128a8,8,0,0,0,16,0,72,72,0,1,1,100.8,66,8,8,0,0,0,3.2,15.34,7.9,7.9,0,0,0,3.2-.68A88,88,0,0,0,160,40Z"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div id="progress">
+          <div
+            id="progress-alert"
+            class="card hidden"
+            style="border-color: #f87171; background-color: #fee2e2"
+          >
+            <p style="color: #b91c1c; font-family: monospace">
+              <b>No video data found</b>. This may have occured if the page was
+              refreshed, please try again.
+            </p>
+          </div>
+          <div class="card hidden" id="existing-content">
+            <div class="content-available" id="notes">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                fill="#000000"
+                viewBox="0 0 256 256"
+              >
+                <path
+                  d="M88,96a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H96A8,8,0,0,1,88,96Zm8,40h64a8,8,0,0,0,0-16H96a8,8,0,0,0,0,16Zm32,16H96a8,8,0,0,0,0,16h32a8,8,0,0,0,0-16ZM224,48V156.69A15.86,15.86,0,0,1,219.31,168L168,219.31A15.86,15.86,0,0,1,156.69,224H48a16,16,0,0,1-16-16V48A16,16,0,0,1,48,32H208A16,16,0,0,1,224,48ZM48,208H152V160a8,8,0,0,1,8-8h48V48H48Zm120-40v28.7L196.69,168Z"
+                ></path>
+              </svg>
+              <a
+                href="https://www.notes.socialcoding.net/"
+                target="_blank"
+                class="brand-color"
+              >
+                Notes Available
+              </a>
+            </div>
+            <div class="content-available" id="summary">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                fill="#000000"
+                viewBox="0 0 256 256"
+              >
+                <path
+                  d="M88,96a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H96A8,8,0,0,1,88,96Zm8,40h64a8,8,0,0,0,0-16H96a8,8,0,0,0,0,16Zm32,16H96a8,8,0,0,0,0,16h32a8,8,0,0,0,0-16ZM224,48V156.69A15.86,15.86,0,0,1,219.31,168L168,219.31A15.86,15.86,0,0,1,156.69,224H48a16,16,0,0,1-16-16V48A16,16,0,0,1,48,32H208A16,16,0,0,1,224,48ZM48,208H152V160a8,8,0,0,1,8-8h48V48H48Zm120-40v28.7L196.69,168Z"
+                ></path>
+              </svg>
+              <a
+                href="https://www.notes.socialcoding.net/"
+                target="_blank"
+                class="brand-color"
+              >
+                Summary Available
+              </a>
+            </div>
+          </div>
+          <div class="card hidden" id="progress-container">
+            <div class="progress-element hidden" id="to-server">
+              <span class="status-circle"></span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 256 256"
+              >
+                <path
+                  d="M178.34,165.66,160,147.31V208a8,8,0,0,1-16,0V147.31l-18.34,18.35a8,8,0,0,1-11.32-11.32l32-32a8,8,0,0,1,11.32,0l32,32a8,8,0,0,1-11.32,11.32ZM160,40A88.08,88.08,0,0,0,81.29,88.68,64,64,0,1,0,72,216h40a8,8,0,0,0,0-16H72a48,48,0,0,1,0-96c1.1,0,2.2,0,3.29.12A88,88,0,0,0,72,128a8,8,0,0,0,16,0,72,72,0,1,1,100.8,66,8,8,0,0,0,3.2,15.34,7.9,7.9,0,0,0,3.2-.68A88,88,0,0,0,160,40Z"
+                ></path>
+              </svg>
+              <p>Processing job on server</p>
+            </div>
+            <div class="progress-element hidden" id="video-generation">
+              <span class="status-circle"></span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="32"
+                height="32"
+                viewBox="0 0 256 256"
+              >
+                <path
+                  d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40v72a8,8,0,0,0,16,0V40h88V88a8,8,0,0,0,8,8h48V216h-8a8,8,0,0,0,0,16h8a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM155.88,145a8,8,0,0,0-8.12.22l-19.95,12.46A16,16,0,0,0,112,144H48a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h64a16,16,0,0,0,15.81-13.68l19.95,12.46A8,8,0,0,0,160,216V152A8,8,0,0,0,155.88,145ZM112,208H48V160h64v48Zm32-6.43-16-10V176.43l16-10Z"
+                ></path>
+              </svg>
+              <p>Video generation queued</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="../js/process.js" type="module"></script>
+</html>
