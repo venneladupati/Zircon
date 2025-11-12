@@ -1,0 +1,14 @@
+.env
+.aws-sam
+env.tf
+backend/tmp/*
+backend/static/*
+backend/bin/*
+*.zip
+
+# Local .terraform directories
+**/.terraform/*
+
+# .tfstate files
+*.tfstate
+*.tfstate.*
