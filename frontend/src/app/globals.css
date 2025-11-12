@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  p {
+    @apply text-lg lg:text-xl text-neutral-400;
+  }
+  th,
+  td {
+    @apply px-2;
+  }
+  figure {
+    margin-top: 0.75rem;
+  }
+  pre > code {
+    overflow-x: auto;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+  }
+  pre [data-line] {
+    padding: 0 1rem;
+  }
+  code {
+    counter-reset: line;
+  }
+  code > [data-line]::before {
+    counter-increment: line;
+    content: counter(line);
+
+    /* Other styling */
+    display: inline-block;
+    width: 0.75rem;
+    margin-right: 2rem;
+    text-align: right;
+    color: gray;
+  }
+  code[data-theme*=" "],
+  code[data-theme*=" "] span {
+    color: var(--shiki-light);
+    background-color: var(--shiki-light-bg);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    code[data-theme*=" "],
+    code[data-theme*=" "] span {
+      color: var(--shiki-dark);
+      background-color: var(--shiki-dark-bg);
+    }
+  }
+}
+
+:root {
+  /* --background: #fff9ed;
+  --foreground: #171717;
+  --color-brand: #7f1d1d;
+  --color-card: #ffffff;
+  --color-card-border: #e0e0e0; */
+  --background: #131313;
+  --foreground: #ffffff;
+  --color-brand: #c59f63;
+  --color-card: #1d1d1d;
+  --color-card-border: #2d2d2d;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #131313;
+    --foreground: #ffffff;
+    --color-brand: #c59f63;
+    --color-card: #1d1d1d;
+    --color-card-border: #2d2d2d;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  /* Ensure we aren't taking the entire screen, use only a reasonable size */
+  max-width: 1376px;
+  width: 100%;
+  min-height: 60vh;
+}
+
+.blur-image {
+  mask-image: linear-gradient(180deg, #000 50%, transparent 90%);
+}
